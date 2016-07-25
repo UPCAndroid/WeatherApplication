@@ -1,6 +1,7 @@
 package com.example.administrator.weatherapplication;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     private String cityNameFromNetWork = null;
     private Weather weather=null;
     private boolean hasPositioned = false;
+//    private String[] weatherGroup = {"北京","黄岛","济南","衡水","重庆","哈尔滨"};
 
 
 
@@ -106,7 +108,8 @@ public class MainActivity extends AppCompatActivity
     }
     protected void setUpWeather(){
         if(weather!=null){
-            showData.append("weather:"+weather.results.get(0).status);
+            showData.append("weather:"+weather.results.get(0).status+"\n");
+            showData.append("weather:"+weather.results.get(0).basic.city+"\n");
             String s = weather.results.get(0).status;
             Log.e("status:",s);
         }
@@ -175,10 +178,16 @@ public class MainActivity extends AppCompatActivity
             getNetWorkPosition();
         }
 
-
-
-
+        /*for(int i=0;i<5;i++){
+            new GetWeatherTask().execute(weatherGroup[i]);
+        }*/
     }
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -219,6 +228,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Intent intent = new Intent(MainActivity.this,ChoseCityActivity.class);
+            startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
