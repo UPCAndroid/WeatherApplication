@@ -3,6 +3,7 @@ package com.example.administrator.weatherapplication;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.location.Location;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity
     }
     private void getNetWorkPosition(){
 //                 locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
-//        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
     }
     public class GetCityTask extends AsyncTask<String, Void, String> {
 
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity
     protected void setUpPosition(){
         if(cityNameFromNetWork!=null){
 
-            showData.append(cityNameFromNetWork);
+//            showData.append(cityNameFromNetWork);
             new GetWeatherTask().execute(cityNameFromNetWork);
         }
     }
@@ -113,8 +114,8 @@ public class MainActivity extends AppCompatActivity
     }
     protected void setUpWeather(){
         if(weather!=null){
-            showData.append("weather:"+weather.results.get(0).status+"\n");
-            showData.append("weather:"+weather.results.get(0).basic.city+"\n");
+            /*showData.append("weather:"+weather.results.get(0).status+"\n");
+            showData.append("weather:"+weather.results.get(0).basic.city+"\n");*/
             String s = weather.results.get(0).status;
             Log.e("status:",s);
         }
@@ -128,8 +129,30 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         sqLite = new SQLite(this,"weatherDb",null,1);
         sqLiteDatabase = sqLite.getWritableDatabase();
+
+
+
+        List<String> cities = null;
+
+        Cursor cursor = sqLiteDatabase.query("WEATHER",null,null,null,null,null,null);
+        if(cursor.moveToLast()){
+            do{
+                cities.add(cursor.getString(cursor.getColumnIndex("CITY"));
+//                String wind = cursor.getString(cursor.getColumnIndex("WIND"));
+            }while (cursor.moveToPrevious());
+        }
+        cursor.close();
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sqLite = new SQLite(this,"weatherDb",null,1);
+        SQLiteDatabase sqLiteDatabase = sqLite.getWritableDatabase();
+
+
+        sqLiteDatabase.execSQL("INSERT INTO WEATHER (CITY,W,TEMP) VALUES("+weather.results.get(0).basic.city+",?,?)");
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -142,9 +165,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        showData = (TextView)findViewById(R.id.show_data);
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+//        showData = (TextView)findViewById(R.id.show_data);
 
+
+
+
+
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -152,7 +180,6 @@ public class MainActivity extends AppCompatActivity
                     new GetCityTask().execute(new Double(location.getLatitude()).toString()+":"+new Double(location.getLongitude()));
                     hasPositioned=true;
                 }
-
 
             }
 
@@ -173,6 +200,13 @@ public class MainActivity extends AppCompatActivity
             }
         };
 
+
+
+
+
+
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission( Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission( Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{
@@ -184,6 +218,11 @@ public class MainActivity extends AppCompatActivity
         }else{
             getNetWorkPosition();
         }
+
+
+
+
+
 
 
 

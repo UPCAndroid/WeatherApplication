@@ -82,7 +82,7 @@ public class WeatherView {
         //weatherText.setText(weather.results.get(0).status);
         //cityText.setText(weather.getCity());
 
-        switch (weather.getWeather()) {
+        /*switch (weather.getWeather()) {
             case "晴天":
                 img.setImageResource(R.mipmap.qingtian);
                 bg.setBackgroundResource(R.mipmap.);
@@ -99,7 +99,7 @@ public class WeatherView {
                 img.setImageResource(R.mipmap.wip_cloudy);
                 bg.setBackgroundResource(R.mipmap.wip_bk_coludy);
                 break;
-        }
+        }*/
     }
 
     public View getView() {

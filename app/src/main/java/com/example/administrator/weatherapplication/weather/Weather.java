@@ -86,7 +86,7 @@ public class Weather implements Serializable{
             public Wind wind;
         }
         public static class Now{
-            public CondNow code;
+            public CondNow cond;
             public String fl;
             public String hum;
             public String pcpn;
