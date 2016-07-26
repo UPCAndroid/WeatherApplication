@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:background="#aaaaaa"
+            android:background="#eeeeee"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -158,7 +158,7 @@
             <LinearLayout
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:background="#eeeeee"
+                android:background="#ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
