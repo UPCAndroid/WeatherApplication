@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
     }
     private void getNetWorkPosition(){
 //                 locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+//        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
     }
     public class GetCityTask extends AsyncTask<String, Void, String> {
 
