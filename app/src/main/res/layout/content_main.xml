@@ -156,6 +156,7 @@
 
 
             <HorizontalScrollView
+                android:scrollbars="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -317,7 +318,7 @@
                         <TextView
                             android:id="@+id/body_textday6"
                             style="@style/body_title"
-                            android:text="3"
+                            android:text="3月23日"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
