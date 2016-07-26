@@ -155,108 +155,225 @@
             </RelativeLayout>
 
 
-            <LinearLayout
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:background="#ffffff"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-
                 <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="#ffffff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        style="@style/body_title"
-                        android:text="今天"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/duoyun"
-                        android:id="@+id/body_imgjintian"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/body_temjintian"
-                        style="@style/body_tem"
-                        android:text="20~30°"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        <TextView
+                            style="@style/body_title"
+                            android:text="今天"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/duoyun"
+                            android:id="@+id/body_imgday1"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday1"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/body_title"
+                            android:text="明天"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/leizhenyu"
+                            android:id="@+id/body_imgday2"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday2"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/body_title"
+                            android:text="后天"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/dayu"
+                            android:id="@+id/body_imgday3"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday3"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--dahoutian-->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/body_textday4"
+                            style="@style/body_title"
+                            android:text="3月12日"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/dayu"
+                            android:id="@+id/body_imgday4"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday4"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/body_textday5"
+                            style="@style/body_title"
+                            android:text="3月13日"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/dayu"
+                            android:id="@+id/body_imgday5"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday5"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/body_textday6"
+                            style="@style/body_title"
+                            android:text="3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/dayu"
+                            android:id="@+id/body_imghoutian"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday6"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/body_textday7"
+                            style="@style/body_title"
+                            android:text="3月14日"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/dayu"
+                            android:id="@+id/body_imgday7"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp" />
+
+                        <TextView
+                            android:id="@+id/body_temday7"
+                            style="@style/body_tem"
+                            android:text="20~30°"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+
+
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        style="@style/body_title"
-                        android:text="明天"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/leizhenyu"
-                        android:id="@+id/body_imgmingtian"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp" />
-
-                    <TextView
-                        android:id="@+id/body_temmingtian"
-                        style="@style/body_tem"
-                        android:text="20~30°"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        style="@style/body_title"
-                        android:text="后天"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/dayu"
-                        android:id="@+id/body_imghoutian"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp" />
-
-                    <TextView
-                        android:id="@+id/body_temhoutian"
-                        style="@style/body_tem"
-                        android:text="20~30°"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-
-
-
-
-            </LinearLayout>
-
-
+            </HorizontalScrollView>
 
             <!--footer_bar-->
             <LinearLayout
@@ -630,6 +747,7 @@
             </LinearLayout>
 
 
+
             <!--
                         <ScrollView
                             android:layout_width="match_parent"
@@ -669,15 +787,6 @@
 
 
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src=""/>
         </LinearLayout>
 
 
