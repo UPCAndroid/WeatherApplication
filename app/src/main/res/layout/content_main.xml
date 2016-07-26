@@ -28,10 +28,10 @@
                 android:text="Hello World!" />
 
             <RelativeLayout
-
+                android:id="@+id/header_bg"
                 android:background="@mipmap/bg_duoyu"
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="300dp">
 
                 <LinearLayout
                     android:id="@+id/header_centerinfo"
@@ -326,7 +326,7 @@
                             android:layout_margin="5dp"
                             android:layout_gravity="center"
                             android:src="@mipmap/dayu"
-                            android:id="@+id/body_imghoutian"
+                            android:id="@+id/body_imgday6"
                             android:layout_width="55dp"
                             android:layout_height="55dp" />
 
