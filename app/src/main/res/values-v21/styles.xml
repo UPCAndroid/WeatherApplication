@@ -54,6 +54,5 @@
 
     <style name="footer_text">
         <item name="android:textSize">17sp</item>
-
     </style>
 </resources>
