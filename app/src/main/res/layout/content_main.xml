@@ -17,6 +17,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="#aaaaaa"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -148,7 +149,7 @@
             <LinearLayout
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:background="#55eeeeee"
+                android:background="#eeeeee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -245,20 +246,21 @@
             </LinearLayout>
 
             <TextView
+                android:layout_marginTop="2dp"
                 android:id="@+id/body_more"
                 android:gravity="center"
                 android:textSize="15sp"
                 android:padding="3dp"
                 android:textColor="#444444"
-                android:background="#66eeeeee"
+                android:background="#ffffff"
                 android:layout_margin="0dp"
                 android:text="详细信息"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_margin="5dp"
-                android:background="#99ffffff"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
                 android:padding="7dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -271,11 +273,13 @@
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
+
                     android:layout_margin="4dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="紫外线强度："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -292,10 +296,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="穿衣指数："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        style="@style/footer_text"
                         android:id="@+id/footer_chuanyi"
                         android:text="中等"
                         android:layout_width="wrap_content"
@@ -309,10 +315,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="旅游："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        style="@style/footer_text"
                         android:id="@+id/footer_lvyou"
                         android:text="中等"
                         android:layout_width="wrap_content"
@@ -326,10 +334,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="运动："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        style="@style/footer_text"
                         android:id="@+id/footer_yundong"
                         android:text="中等"
                         android:layout_width="wrap_content"
@@ -338,6 +348,7 @@
                 </LinearLayout>
 
                 <TextView
+                    style="@style/footer_text"
                     android:id="@+id/footer_chuxingzhinan"
                     android:text="属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。"
                     android:layout_width="match_parent"
@@ -347,8 +358,8 @@
 
 
             <LinearLayout
-                android:layout_margin="5dp"
-                android:background="#99ffffff"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
                 android:padding="7dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -366,10 +377,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="舒适指数："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        style="@style/footer_text"
                         android:id="@+id/footer_shushi"
                         android:text="中等"
                         android:layout_width="wrap_content"
@@ -383,10 +396,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="感冒指数："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        style="@style/footer_text"
                         android:id="@+id/footer_ganmao"
                         android:text="中等"
                         android:layout_width="wrap_content"
@@ -399,10 +414,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        style="@style/footer_text"
                         android:text="洗车："
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        style="@style/footer_text"
                         android:id="@+id/footer_xiche"
                         android:text="中等"
                         android:layout_width="wrap_content"
@@ -410,6 +427,7 @@
 
                 </LinearLayout>
                 <TextView
+                    style="@style/footer_text"
                     android:id="@+id/footer_shenghuotieshi"
                     android:text="属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。"
                     android:layout_width="match_parent"
