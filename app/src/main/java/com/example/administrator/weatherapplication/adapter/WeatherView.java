@@ -16,6 +16,50 @@ import com.example.administrator.weatherapplication.weather.Weather;
 public class WeatherView {
     private View view;//天气界面
     private Weather weather;//要显示的天气信息
+    public void weatherchange(ImageView img,String weather){
+
+        switch (weather){
+            case "晴":
+                img.setImageResource(R.mipmap.qingtian);
+                break;
+            case "小雨":
+                img.setImageResource(R.mipmap.xiaoyu);
+                break;
+            case "中雪":
+                img.setImageResource(R.mipmap.xue);
+                break;
+            case "中雨":
+                img.setImageResource(R.mipmap.zhongyu);
+                break;
+            case "大雨":
+                img.setImageResource(R.mipmap.dayu);
+                break;
+            case "暴雨":
+                img.setImageResource(R.mipmap.baoyu);
+                break;
+            case "雷阵雨":
+                img.setImageResource(R.mipmap.leizhenyu);
+                break;
+            case "大雪":
+                img.setImageResource(R.mipmap.daxue);
+                break;
+            case "暴雪":
+                img.setImageResource(R.mipmap.daxue);
+                break;
+            case "多云":
+                img.setImageResource(R.mipmap.duoyun);
+                break;
+            case "阴":
+                img.setImageResource(R.mipmap.yintian);
+                break;
+            case "雾":
+                img.setImageResource(R.mipmap.wu);
+                break;
+            case "大雾":
+                img.setImageResource(R.mipmap.wu);
+                break;
+        }
+    }
 
     public WeatherView(Weather weather,Activity activity) {
         this.weather = weather;
@@ -82,23 +126,7 @@ public class WeatherView {
         //weatherText.setText(weather.results.get(0).status);
         //cityText.setText(weather.getCity());
 
-        switch (weather.getWeather()) {
-            case "晴天":
-                img.setImageResource(R.mipmap.qingtian);
-                bg.setBackgroundResource(R.mipmap.);
-                break;
-            case "小雨":
-                img.setImageResource(R.mipmap.wip_rain);
-                bg.setBackgroundResource(R.mipmap.wip_bk_thunderstorm);
-                break;
-            case "中雪":
-                img.setImageResource(R.mipmap.wip_snow);
-                bg.setBackgroundResource(R.mipmap.wip_bk_storm_snow);
-                break;
-            case "多云":
-                img.setImageResource(R.mipmap.wip_cloudy);
-                bg.setBackgroundResource(R.mipmap.wip_bk_coludy);
-                break;
+
         }
     }
 
