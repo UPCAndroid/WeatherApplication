@@ -66,6 +66,8 @@ public class WeatherView {
             case "小雪":
                 img.setImageResource(R.mipmap.xue);
                 break;
+            default:
+                img.setImageResource(R.mipmap.duoyun);
         }
     }
     public void temchange(TextView tem, String maxtem,String mintem){
@@ -74,8 +76,8 @@ public class WeatherView {
     public void datechannge(TextView day, String date){
         day.setText(date);
     }
-    public void bgchange(ImageView img,String weather){
-
+    public void bgchange(ImageView img,TextView nowCityWeather,String city, String weather){
+        nowCityWeather.setText(city+"|"+weather);
         switch (weather){
             case "晴":
                 img.setImageResource(R.mipmap.bg_sunny);
@@ -119,8 +121,13 @@ public class WeatherView {
             case "小雪":
                 img.setImageResource(R.mipmap.bg_snow);
                 break;
+            default:
+                img.setImageResource(R.mipmap.bg_cloud);
         }
+
     }
+
+
     public WeatherView(Weather weather,Activity activity) {
         this.weather = weather;
 
@@ -183,8 +190,7 @@ public class WeatherView {
         RelativeLayout header_bg=(RelativeLayout)view.findViewById(R.id.header_bg);
 
 
-        //weatherText.setText(weather.results.get(0).status);
-        //cityText.setText(weather.getCity());
+
 
 
         }
