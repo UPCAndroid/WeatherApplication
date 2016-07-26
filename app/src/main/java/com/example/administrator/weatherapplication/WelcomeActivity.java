@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,8 +25,15 @@ public class WelcomeActivity extends Activity {
 
 
 
-        Animation  anim = AnimationUtils.loadAnimation(this,R.anim.welcome_show);
-        welcomeName.startAnimation(anim);
+        Animation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
+        Animation translateAnimation = new TranslateAnimation(0,0,0,-100);
+
+        AnimationSet set = new AnimationSet(true);
+        set.addAnimation(alphaAnimation);
+        set.addAnimation(translateAnimation);
+
+      set.setDuration(2000);
+        welcomeName.startAnimation(set);
 
 
 
