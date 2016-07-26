@@ -1,6 +1,5 @@
 package com.example.administrator.weatherapplication;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
-
-import com.example.administrator.weatherapplication.database.OrderDBHelper;
 
 import java.util.ArrayList;
 import java.util.List;
