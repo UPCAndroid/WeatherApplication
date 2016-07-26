@@ -12,8 +12,6 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.example.administrator.weatherapplication.adapter.ViewPagerAdapter;
@@ -42,18 +41,22 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView showData;
+
+//    private TextView showData;
     private LocationManager locationManager;
     private LocationListener locationListener;
     private String cityNameFromNetWork = null;
     private Weather weather=null;
     private boolean hasPositioned = false;
     private SQLite sqLite;
-    private SQLiteDatabase sqLiteDatabase;
+    private SQLiteOpenHelper sqHelper;
     private ViewPager weatherPager;
     private ViewPagerAdapter viewPagerAdapter;
     private ArrayList<View> list;
-    private String[] citieses={"北京","青岛","黄岛","衡水","北京"};
+//    private String[] cities={"北京","青岛","黄岛","衡水","北京"};
+
+    List<String> cities = new ArrayList<String>();
+
 
 
 
@@ -95,8 +98,29 @@ public class MainActivity extends AppCompatActivity
     protected void setUpPosition(){
         if(cityNameFromNetWork!=null){
 
-            showData.append(cityNameFromNetWork);
-            new GetWeatherTask().execute(cityNameFromNetWork);
+//            showData.append(cityNameFromNetWork);
+            boolean ifHasThis = false;
+            for (String city :
+                    cities) {
+                if(cityNameFromNetWork == city){
+
+                    ifHasThis = true;
+                    Log.e("errrrr","ture");
+                }
+            }
+            if(ifHasThis){
+                for (String city :
+                        cities) {
+                    new GetWeatherTask().execute(city);
+                }
+            }else{
+                new GetWeatherTask().execute(cityNameFromNetWork);
+                for (String city :
+                        cities) {
+                    new GetWeatherTask().execute(city);
+                }
+            }
+
         }
     }
     public class GetWeatherTask extends AsyncTask<String,Void,Weather>{
@@ -121,8 +145,8 @@ public class MainActivity extends AppCompatActivity
     }
     protected void setUpWeather(){
         if(weather!=null){
-            showData.append("weather:"+weather.results.get(0).status+"\n");
-            showData.append("weather:"+weather.results.get(0).basic.city+"\n");
+//            showData.append("weather:"+weather.results.get(0).status+"\n");
+//            showData.append("weather:"+weather.results.get(0).basic.city+"\n");
             list.add(new WeatherView(weather,MainActivity.this).getView());
             viewPagerAdapter.notifyDataSetChanged();
             String s = weather.results.get(0).status;
@@ -135,38 +159,54 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+
+
+        SQLite db;
+        db = new SQLite(this,"WEATHER",null,7);
+        db.getWritableDatabase();
+        SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM WEATHER",null);
+        if(cursor.moveToFirst()){
+            do{
+                String ci = cursor.getString(cursor.getColumnIndex("CITY"));
+                cities.add(ci);
+//                wind = cursor.getString(cursor.getColumnIndex("WIND"));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+
+
+
+
+
+
+
+
+
+
         weatherPager = (ViewPager)findViewById(R.id.weather_pager);
         list = new ArrayList<View>();
         viewPagerAdapter=new ViewPagerAdapter(this,list);
         weatherPager.setAdapter(viewPagerAdapter);
-/*
-        sqLite = new SQLite(this,"weatherDb",null,1);
-        sqLiteDatabase = sqLite.getWritableDatabase();
-*/
 
 
-/*
 
-        List<String> cities = null;
 
-        Cursor cursor = sqLiteDatabase.query("WEATHER",null,null,null,null,null,null);
-        if(cursor.moveToLast()){
-            do{
-                cities.add(cursor.getString(cursor.getColumnIndex("CITY")));
-//                String wind = cursor.getString(cursor.getColumnIndex("WIND"));
-            }while (cursor.moveToPrevious());
-        }
-        cursor.close();
 
-*/
+
+
+
+
+
 
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-/*        sqLite = new SQLite(this,"weatherDb",null,1);
-        SQLiteDatabase sqLiteDatabase = sqLite.getWritableDatabase();*/
 
 
 
@@ -182,7 +222,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-       showData = (TextView)findViewById(R.id.show_data);
+//       showData = (TextView)findViewById(R.id.show_data);
 
 
 
@@ -239,9 +279,13 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        for(int i=0;i<citieses.length;i++){
-            new GetWeatherTask().execute(citieses[i]);
-        }
+
+
+
+
+
+
+
 
 
 
@@ -311,14 +355,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            Intent intent = new Intent(MainActivity.this,CityList.class);
+            startActivity(intent);
 
         }
 
@@ -326,4 +364,15 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
+
+
+
+
+
+
 }

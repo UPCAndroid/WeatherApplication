@@ -1,5 +1,11 @@
 package com.example.administrator.weatherapplication;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import com.example.administrator.weatherapplication.database.SQLite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +38,12 @@ public class ChoseCityActivity extends AppCompatActivity implements SearchView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chose_city);
 
+
+        SQLite db;
+        db = new SQLite(this,"WEATHER",null,7);
+        db.getWritableDatabase();
+        final SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
+
         setCityList();
         searchList = (ListView)findViewById(R.id.searchList);
         searchCity = (SearchView) findViewById(R.id.searchCity);
@@ -41,10 +55,20 @@ public class ChoseCityActivity extends AppCompatActivity implements SearchView.O
         searchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(ChoseCityActivity.this,cityNameListHan[i],Toast.LENGTH_LONG).show();
+
+
+
+                Toast.makeText(ChoseCityActivity.this,cityNameListHan[i]+"已经添加",Toast.LENGTH_LONG).show();
+
+                ContentValues cv = new ContentValues();
+                cv.put("CITY",cityNameListHan[i]);
+                sqLiteDatabase.insert("WEATHER","CITY",cv);
+
+                Intent intent = new Intent(ChoseCityActivity.this,MainActivity.class);
+                startActivity(intent);
+
             }
         });
-
 
 
     }

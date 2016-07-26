@@ -70,55 +70,62 @@ public class WeatherView {
     }
 
 
-    public void Bgchange(RelativeLayout img, String weather){
+    public void Bgchange(ImageView img, String weather){
 
         switch (weather){
             case "晴":
-                img.setBackgroundResource(R.mipmap.bg_sunny);
+                img.setImageResource(R.mipmap.bg_sunny);
                 break;
             case "小雨":
-                img.setBackgroundResource(R.mipmap.bg_rain);
+                img.setImageResource(R.mipmap.bg_rain);
                 break;
             case "中雪":
-                img.setBackgroundResource(R.mipmap.bg_snow);
+                img.setImageResource(R.mipmap.bg_snow);
                 break;
             case "中雨":
-                img.setBackgroundResource(R.mipmap.bg_rain);
+                img.setImageResource(R.mipmap.bg_rain);
                 break;
             case "大雨":
-                img.setBackgroundResource(R.mipmap.bg_rain);
+                img.setImageResource(R.mipmap.bg_rain);
                 break;
             case "暴雨":
-                img.setBackgroundResource(R.mipmap.bg_rain);
+                img.setImageResource(R.mipmap.bg_rain);
                 break;
             case "雷阵雨":
-                img.setBackgroundResource(R.mipmap.bg_leiyu);
+                img.setImageResource(R.mipmap.bg_leiyu);
                 break;
             case "大雪":
-                img.setBackgroundResource(R.mipmap.bg_snow);
+                img.setImageResource(R.mipmap.bg_snow);
                 break;
             case "暴雪":
-                img.setBackgroundResource(R.mipmap.bg_snow);
+                img.setImageResource(R.mipmap.bg_snow);
                 break;
             case "多云":
-                img.setBackgroundResource(R.mipmap.bg_cloud);
+                img.setImageResource(R.mipmap.bg_cloud);
                 break;
             case "阴":
-                img.setBackgroundResource(R.mipmap.bg_yin);
+                img.setImageResource(R.mipmap.bg_yin);
                 break;
             case "雾":
-                img.setBackgroundResource(R.mipmap.bg_fog);
+                img.setImageResource(R.mipmap.bg_fog);
                 break;
             case "大雾":
-                img.setBackgroundResource(R.mipmap.bg_fog);
+                img.setImageResource(R.mipmap.bg_fog);
                 break;
             case "小雪":
-                img.setBackgroundResource(R.mipmap.bg_snow);
+                img.setImageResource(R.mipmap.bg_snow);
                 break;
             default:
-                img.setBackgroundResource(R.mipmap.bg_cloud);
+                img.setImageResource(R.mipmap.bg_cloud);
         }
 
+    }
+    public String IfIsNull(String str){
+        if(str==null){
+            return "暂无数据";
+        }else{
+            return str;
+        }
     }
 
     public WeatherView(Weather weather,Activity activity) {
@@ -155,19 +162,19 @@ public class WeatherView {
         ImageView body_imgday7=(ImageView)view.findViewById(R.id.body_imgday7);
         Imgchange(body_imgday7,weather.results.get(0).daily_forecast.get(6).cond.txt_d);
         TextView body_temday1=(TextView)view.findViewById(R.id.body_temday1);
-        body_temday1.setText(weather.results.get(0).daily_forecast.get(0).tmp.max+"~"+weather.results.get(0).daily_forecast.get(0).tmp.min+"°");
+        body_temday1.setText(weather.results.get(0).daily_forecast.get(0).tmp.min+"~"+weather.results.get(0).daily_forecast.get(0).tmp.max+"°");
         TextView body_temday2=(TextView)view.findViewById(R.id.body_temday2);
-        body_temday2.setText(weather.results.get(0).daily_forecast.get(1).tmp.max+"~"+weather.results.get(0).daily_forecast.get(1).tmp.min+"°");
+        body_temday2.setText(weather.results.get(0).daily_forecast.get(1).tmp.min+"~"+weather.results.get(0).daily_forecast.get(1).tmp.max+"°");
         TextView body_temday3=(TextView)view.findViewById(R.id.body_temday3);
-        body_temday3.setText(weather.results.get(0).daily_forecast.get(2).tmp.max+"~"+weather.results.get(0).daily_forecast.get(2).tmp.min+"°");
+        body_temday3.setText(weather.results.get(0).daily_forecast.get(2).tmp.min+"~"+weather.results.get(0).daily_forecast.get(2).tmp.max+"°");
         TextView body_temday4=(TextView)view.findViewById(R.id.body_temday4);
-        body_temday4.setText(weather.results.get(0).daily_forecast.get(3).tmp.max+"~"+weather.results.get(0).daily_forecast.get(3).tmp.min+"°");
+        body_temday4.setText(weather.results.get(0).daily_forecast.get(3).tmp.min+"~"+weather.results.get(0).daily_forecast.get(3).tmp.max+"°");
         TextView body_temday5=(TextView)view.findViewById(R.id.body_temday5);
-        body_temday5.setText(weather.results.get(0).daily_forecast.get(4).tmp.max+"~"+weather.results.get(0).daily_forecast.get(4).tmp.min+"°");
+        body_temday5.setText(weather.results.get(0).daily_forecast.get(4).tmp.min+"~"+weather.results.get(0).daily_forecast.get(4).tmp.max+"°");
         TextView body_temday6=(TextView)view.findViewById(R.id.body_temday6);
-        body_temday6.setText(weather.results.get(0).daily_forecast.get(5).tmp.max+"~"+weather.results.get(0).daily_forecast.get(5).tmp.min+"°");
+        body_temday6.setText(weather.results.get(0).daily_forecast.get(5).tmp.min+"~"+weather.results.get(0).daily_forecast.get(5).tmp.max+"°");
         TextView body_temday7=(TextView)view.findViewById(R.id.body_temday7);
-        body_temday7.setText(weather.results.get(0).daily_forecast.get(6).tmp.max+"~"+weather.results.get(0).daily_forecast.get(6).tmp.min+"°");
+        body_temday7.setText(weather.results.get(0).daily_forecast.get(6).tmp.min+"~"+weather.results.get(0).daily_forecast.get(6).tmp.max+"°");
         TextView body_textday4=(TextView)view.findViewById(R.id.body_textday4);
         body_textday4.setText(weather.results.get(0).daily_forecast.get(3).date.replace("2016-","").replace("-","月")+"日");
         TextView body_textday5=(TextView)view.findViewById(R.id.body_textday5);
@@ -177,18 +184,25 @@ public class WeatherView {
         TextView body_textday7=(TextView)view.findViewById(R.id.body_textday7);
         body_textday7.setText(weather.results.get(0).daily_forecast.get(6).date.replace("2016-","").replace("-","月")+"日");
 
+        /*body_bar_star*/
         TextView footer_bar_pm25=(TextView)view.findViewById(R.id.footer_bar_pm25);
-        footer_bar_pm25.setText(weather.results.get(0).aqi.city.pm25);
+        footer_bar_pm25.setText(  IfIsNull(weather.results.get(0).aqi.city.pm25 ) );
+
         TextView footer_bar_no2=(TextView)view.findViewById(R.id.footer_bar_no2);
-        footer_bar_no2.setText(weather.results.get(0).aqi.city.no2);
+        footer_bar_no2.setText( IfIsNull(  weather.results.get(0).aqi.city.no2) );
+
         TextView footer_bar_co=(TextView)view.findViewById(R.id.footer_bar_co);
-        footer_bar_co.setText(weather.results.get(0).aqi.city.co);
+        footer_bar_co.setText( IfIsNull(  weather.results.get(0).aqi.city.co ));
+
         TextView footer_bar_pm10=(TextView)view.findViewById(R.id.footer_bar_PM10);
-        footer_bar_pm10.setText(weather.results.get(0).aqi.city.pm10);
+        footer_bar_pm10.setText( IfIsNull( weather.results.get(0).aqi.city.pm10) );
+
         TextView footer_bar_so2=(TextView)view.findViewById(R.id.footer_bar_so2);
-        footer_bar_so2.setText(weather.results.get(0).aqi.city.so2);
+        footer_bar_so2.setText( IfIsNull( weather.results.get(0).aqi.city.so2) );
+
         TextView footer_bar_o3=(TextView)view.findViewById(R.id.footer_bar_o3);
-        footer_bar_o3.setText(weather.results.get(0).aqi.city.o3);
+        footer_bar_o3.setText( IfIsNull( weather.results.get(0).aqi.city.o3) );
+        /*body_bar_end*/
         TextView footer_ziwaixian=(TextView)view.findViewById(R.id.footer_ziwaixian);
         footer_ziwaixian.setText(weather.results.get(0).suggestion.uv.brf);
         TextView footer_ziwaixianjianyi=(TextView)view.findViewById(R.id.footer_ziwaixianjianyi);
@@ -219,7 +233,7 @@ public class WeatherView {
         footer_shenghuo.setText(weather.results.get(0).suggestion.comf.brf);
         TextView footer_shenghuojianyi=(TextView)view.findViewById(R.id.footer_shenghuojianyi);
         footer_shenghuojianyi.setText(weather.results.get(0).suggestion.comf.txt);
-        RelativeLayout header_bg=(RelativeLayout)view.findViewById(R.id.header_bg);
+        ImageView header_bg=(ImageView)view.findViewById(R.id.header_bg);
         Bgchange(header_bg,weather.results.get(0).now.cond.txt);
 
         //weatherText.setText(weather.results.get(0).status);

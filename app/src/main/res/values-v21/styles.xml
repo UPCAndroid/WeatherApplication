@@ -12,21 +12,21 @@
     <!--header_________-->
     <style name="header_bbar_title">
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">#223356</item>
         <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="header_bbar_value">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_margin">4dp</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">#335566</item>
         <item name="android:textSize">20sp</item>
     </style>
 
 
     <!--body_________-->
     <style name="body_title">
-        <item name="android:textColor">#66ccff</item>
+        <item name="android:textColor">#335577</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">20sp</item>
 
@@ -39,7 +39,7 @@
     </style>
 
     <style name="body_tem">
-        <item name="android:textColor">#66ccff</item>
+        <item name="android:textColor">#335577</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">20sp</item>
 
