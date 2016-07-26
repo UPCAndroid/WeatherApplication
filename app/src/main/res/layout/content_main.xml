@@ -569,7 +569,7 @@
             </LinearLayout>
 
 
-
+            <!--footer1-->
             <LinearLayout
                 android:layout_marginTop="5dp"
                 android:background="#ffffff"
@@ -578,11 +578,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/footer_title"
-                    android:text="出行指南"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
                 <LinearLayout
 
@@ -590,85 +585,37 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="紫外线强度："
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/footer_ziwaixian"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/umbrella"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_margin="4dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="穿衣指数："
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        style="@style/footer_text"
-                        android:id="@+id/footer_chuanyi"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_ziwaixian"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_ziwaixianjianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_margin="4dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="旅游："
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        style="@style/footer_text"
-                        android:id="@+id/footer_lvyou"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_margin="4dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="运动："
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        style="@style/footer_text"
-                        android:id="@+id/footer_yundong"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-                <TextView
-                    style="@style/footer_text"
-                    android:id="@+id/footer_chuxingzhinan"
-                    android:text="属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
             </LinearLayout>
-
-
+            <!--footer2-->
             <LinearLayout
                 android:layout_marginTop="5dp"
                 android:background="#ffffff"
@@ -677,75 +624,282 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/footer_title"
-                    android:text="生活贴士"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
                 <LinearLayout
+
                     android:layout_margin="4dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="舒适指数："
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/trav"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        style="@style/footer_text"
-                        android:id="@+id/footer_shushi"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_lvyou"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_lnyoujianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_margin="4dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="感冒指数："
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        style="@style/footer_text"
-                        android:id="@+id/footer_ganmao"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_margin="4dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        style="@style/footer_text"
-                        android:text="洗车："
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        style="@style/footer_text"
-                        android:id="@+id/footer_xiche"
-                        android:text="中等"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-                <TextView
-                    style="@style/footer_text"
-                    android:id="@+id/footer_shenghuotieshi"
-                    android:text="属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
             </LinearLayout>
+
+            <!--footer3-->
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:padding="7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+
+                    android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/clothes"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_chuanyi"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_chuanyijianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--footer4-->
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:padding="7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+
+                    android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/sports"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_yundong"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_yundongjianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--footer5-->
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:padding="7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+
+                    android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/car"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_xiche"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_xichejianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--footer6-->
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:padding="7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+
+                    android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/flu"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_ganmao"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_ganmaojianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--footer7-->
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:padding="7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+
+                    android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:src="@mipmap/life"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/footer_shenghuo"
+                            style="@style/footer_text"
+                            android:text="中等"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/footer_shenghuojianyi"
+                            android:text="相关建议"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
 
 
 
