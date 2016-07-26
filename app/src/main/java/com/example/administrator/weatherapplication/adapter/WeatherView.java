@@ -10,13 +10,18 @@ import android.widget.TextView;
 import com.example.administrator.weatherapplication.R;
 import com.example.administrator.weatherapplication.weather.Weather;
 
+import java.util.concurrent.Exchanger;
+
 /**
  * Created by w1210 on 2016/7/26.
  */
 public class WeatherView {
     private View view;//天气界面
     private Weather weather;//要显示的天气信息
-    public void weatherchange(ImageView img,String weather){
+    public View getView() {
+        return view;
+    }
+    public void imgchange(ImageView img,String weather){
 
         switch (weather){
             case "晴":
@@ -58,9 +63,64 @@ public class WeatherView {
             case "大雾":
                 img.setImageResource(R.mipmap.wu);
                 break;
+            case "小雪":
+                img.setImageResource(R.mipmap.xue);
+                break;
         }
     }
+    public void temchange(TextView tem, String maxtem,String mintem){
+        tem.setText(mintem+"~"+maxtem+"°");
+    }
+    public void datechannge(TextView day, String date){
+        day.setText(date);
+    }
+    public void bgchange(ImageView img,String weather){
 
+        switch (weather){
+            case "晴":
+                img.setImageResource(R.mipmap.bg_sunny);
+                break;
+            case "小雨":
+                img.setImageResource(R.mipmap.bg_rain);
+                break;
+            case "中雪":
+                img.setImageResource(R.mipmap.bg_snow);
+                break;
+            case "中雨":
+                img.setImageResource(R.mipmap.bg_rain);
+                break;
+            case "大雨":
+                img.setImageResource(R.mipmap.bg_rain);
+                break;
+            case "暴雨":
+                img.setImageResource(R.mipmap.bg_rain);
+                break;
+            case "雷阵雨":
+                img.setImageResource(R.mipmap.bg_leiyu);
+                break;
+            case "大雪":
+                img.setImageResource(R.mipmap.bg_snow);
+                break;
+            case "暴雪":
+                img.setImageResource(R.mipmap.bg_snow);
+                break;
+            case "多云":
+                img.setImageResource(R.mipmap.bg_cloud);
+                break;
+            case "阴":
+                img.setImageResource(R.mipmap.bg_yin);
+                break;
+            case "雾":
+                img.setImageResource(R.mipmap.bg_fog);
+                break;
+            case "大雾":
+                img.setImageResource(R.mipmap.bg_fog);
+                break;
+            case "小雪":
+                img.setImageResource(R.mipmap.bg_snow);
+                break;
+        }
+    }
     public WeatherView(Weather weather,Activity activity) {
         this.weather = weather;
 
@@ -130,7 +190,4 @@ public class WeatherView {
         }
     }
 
-    public View getView() {
-        return view;
-    }
-}
+
