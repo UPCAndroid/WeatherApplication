@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -26,6 +27,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.administrator.weatherapplication.adapter.ViewPagerAdapter;
+import com.example.administrator.weatherapplication.adapter.WeatherView;
 import com.example.administrator.weatherapplication.database.SQLite;
 import com.example.administrator.weatherapplication.weather.GetCityName;
 import com.example.administrator.weatherapplication.weather.GetWeather;
@@ -47,6 +50,10 @@ public class MainActivity extends AppCompatActivity
     private boolean hasPositioned = false;
     private SQLite sqLite;
     private SQLiteDatabase sqLiteDatabase;
+    private ViewPager weatherPager;
+    private ViewPagerAdapter viewPagerAdapter;
+    private ArrayList<View> list;
+    private String[] citieses={"北京","青岛","黄岛","衡水","北京"};
 
 
 
@@ -88,7 +95,7 @@ public class MainActivity extends AppCompatActivity
     protected void setUpPosition(){
         if(cityNameFromNetWork!=null){
 
-//            showData.append(cityNameFromNetWork);
+            showData.append(cityNameFromNetWork);
             new GetWeatherTask().execute(cityNameFromNetWork);
         }
     }
@@ -114,8 +121,10 @@ public class MainActivity extends AppCompatActivity
     }
     protected void setUpWeather(){
         if(weather!=null){
-            /*showData.append("weather:"+weather.results.get(0).status+"\n");
-            showData.append("weather:"+weather.results.get(0).basic.city+"\n");*/
+            showData.append("weather:"+weather.results.get(0).status+"\n");
+            showData.append("weather:"+weather.results.get(0).basic.city+"\n");
+            list.add(new WeatherView(weather,MainActivity.this).getView());
+            viewPagerAdapter.notifyDataSetChanged();
             String s = weather.results.get(0).status;
             Log.e("status:",s);
         }
@@ -127,32 +136,40 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        weatherPager = (ViewPager)findViewById(R.id.weather_pager);
+        list = new ArrayList<View>();
+        viewPagerAdapter=new ViewPagerAdapter(this,list);
+        weatherPager.setAdapter(viewPagerAdapter);
+/*
         sqLite = new SQLite(this,"weatherDb",null,1);
         sqLiteDatabase = sqLite.getWritableDatabase();
+*/
 
 
+/*
 
         List<String> cities = null;
 
         Cursor cursor = sqLiteDatabase.query("WEATHER",null,null,null,null,null,null);
         if(cursor.moveToLast()){
             do{
-                cities.add(cursor.getString(cursor.getColumnIndex("CITY"));
+                cities.add(cursor.getString(cursor.getColumnIndex("CITY")));
 //                String wind = cursor.getString(cursor.getColumnIndex("WIND"));
             }while (cursor.moveToPrevious());
         }
         cursor.close();
 
+*/
 
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        sqLite = new SQLite(this,"weatherDb",null,1);
-        SQLiteDatabase sqLiteDatabase = sqLite.getWritableDatabase();
+/*        sqLite = new SQLite(this,"weatherDb",null,1);
+        SQLiteDatabase sqLiteDatabase = sqLite.getWritableDatabase();*/
 
 
-        sqLiteDatabase.execSQL("INSERT INTO WEATHER (CITY,W,TEMP) VALUES("+weather.results.get(0).basic.city+",?,?)");
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -165,7 +182,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-//        showData = (TextView)findViewById(R.id.show_data);
+       showData = (TextView)findViewById(R.id.show_data);
 
 
 
@@ -222,11 +239,28 @@ public class MainActivity extends AppCompatActivity
 
 
 
+        for(int i=0;i<citieses.length;i++){
+            new GetWeatherTask().execute(citieses[i]);
+        }
 
 
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
