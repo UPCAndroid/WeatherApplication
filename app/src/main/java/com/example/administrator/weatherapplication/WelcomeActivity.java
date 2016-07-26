@@ -8,32 +8,32 @@ import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class WelcomeActivity extends Activity {
 
     private TextView welcomeName;
+    private ImageView background;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         welcomeName = (TextView)findViewById(R.id.name_welcome);
+        background = (ImageView)findViewById(R.id.welcome_background);
         //在界面上显示一个提示框
 //        Toast.makeText(WelcomeActivity.this, "更多精彩内容，请使用app", Toast.LENGTH_LONG).show();
 
 
 
-        Animation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
-        Animation translateAnimation = new TranslateAnimation(0,0,0,-100);
+        Animation anim = AnimationUtils.loadAnimation(this,R.anim.welcome_show);
+        welcomeName.setAnimation(anim);
+        Animation animBg = AnimationUtils.loadAnimation(this,R.anim.backgroung_anim);
+        background.setAnimation(animBg);
 
-        AnimationSet set = new AnimationSet(true);
-        set.addAnimation(alphaAnimation);
-        set.addAnimation(translateAnimation);
-
-      set.setDuration(2000);
-        welcomeName.startAnimation(set);
 
 
 
@@ -61,7 +61,7 @@ public class WelcomeActivity extends Activity {
             public void run() {
                 //在子线程里停留五秒钟
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     //把异常信息打印在控制台上
                     e.printStackTrace();

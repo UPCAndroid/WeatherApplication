@@ -13,7 +13,52 @@ public class SQLite extends SQLiteOpenHelper {
             "CREATE TABLE WEATHER ("
                     + "CITY TEXT PRIMARY KEY,"
                     + "TEMP TEXT,"
-                    + "WIND TEXT)";
+                    + "WIND TEXT,"
+                    + "WEATHER TEXT," +
+                    "SHIDU TEXT," +
+                    "QIYA TEXT," +
+                    "W1 TEXT," +
+                    "W2 TEXT," +
+                    "W3 TEXT," +
+                    "W4 TEXT," +
+                    "W5 TEXT," +
+                    "W6 TEXT," +
+                    "W7 TEXT," +
+                    "L1 TEXT" +
+                    "L2 TEXT" +
+                    "L3 TEXT" +
+                    "L4 TEXT" +
+                    "L5 TEXT" +
+                    "L6 TEXT" +
+                    "L7 TEXT" +
+                    "H1 TEXT" +
+                    "H2 TEXT" +
+                    "H3 TEXT" +
+                    "H4 TEXT" +
+                    "H5 TEXT" +
+                    "H6 TEXT" +
+                    "H7 TEXT" +
+                    "PM25 TEXT" +
+                    "NO2 TEXT" +
+                    "CO TEXT" +
+                    "PM10 TEXT" +
+                    "SO2 TEXT" +
+                    "O3 TEXT" +
+                    "SU11 TEXT" +
+                    "SU21 TEXT" +
+                    "SU31 TEXT" +
+                    "SU41 TEXT" +
+                    "SU51 TEXT" +
+                    "SU61 TEXT" +
+                    "SU71 TEXT" +
+                    "SU12 TEXT" +
+                    "SU22 TEXT" +
+                    "SU32 TEXT" +
+                    "SU42 TEXT" +
+                    "SU52 TEXT" +
+                    "SU62 TEXT" +
+                    "SU72 TEXT" +
+                    ")";
 
     private Context mContext;
 

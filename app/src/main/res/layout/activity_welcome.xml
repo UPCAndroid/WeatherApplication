@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
     tools:context="com.example.administrator.weatherapplication.WelcomeActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:id="@+id/welcome_background"
+        android:src="@mipmap/bg"/>
     <TextView
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:id="@+id/name_welcome"
         android:text="呵呵哒"

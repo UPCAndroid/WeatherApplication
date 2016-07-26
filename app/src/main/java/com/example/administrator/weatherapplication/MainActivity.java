@@ -3,6 +3,8 @@ package com.example.administrator.weatherapplication;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -23,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.administrator.weatherapplication.database.SQLite;
 import com.example.administrator.weatherapplication.weather.GetCityName;
 import com.example.administrator.weatherapplication.weather.GetWeather;
 import com.example.administrator.weatherapplication.weather.Weather;
@@ -41,7 +44,9 @@ public class MainActivity extends AppCompatActivity
     private String cityNameFromNetWork = null;
     private Weather weather=null;
     private boolean hasPositioned = false;
-//    private String[] weatherGroup = {"北京","黄岛","济南","衡水","重庆","哈尔滨"};
+    private SQLite sqLite;
+    private SQLiteDatabase sqLiteDatabase;
+
 
 
 
@@ -121,6 +126,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sqLite = new SQLite(this,"weatherDb",null,1);
+        sqLiteDatabase = sqLite.getWritableDatabase();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -178,9 +185,8 @@ public class MainActivity extends AppCompatActivity
             getNetWorkPosition();
         }
 
-        /*for(int i=0;i<5;i++){
-            new GetWeatherTask().execute(weatherGroup[i]);
-        }*/
+
+
     }
 
 
