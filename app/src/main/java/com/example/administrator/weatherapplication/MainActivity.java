@@ -98,31 +98,19 @@ public class MainActivity extends AppCompatActivity
     protected void setUpPosition(){
         if(cityNameFromNetWork!=null){
 
-//            showData.append(cityNameFromNetWork);
-            boolean ifHasThis = false;
-            for (String city :
-                    cities) {
-                if(cityNameFromNetWork == city){
 
-                    ifHasThis = true;
-                    Log.e("errrrr","ture");
+            new GetWeatherTask().execute(cityNameFromNetWork);
                 }
-            }
-            if(ifHasThis){
+
+
                 for (String city :
                         cities) {
                     new GetWeatherTask().execute(city);
                 }
-            }else{
-                new GetWeatherTask().execute(cityNameFromNetWork);
-                for (String city :
-                        cities) {
-                    new GetWeatherTask().execute(city);
-                }
-            }
+
 
         }
-    }
+
     public class GetWeatherTask extends AsyncTask<String,Void,Weather>{
         @Override
         protected void onPreExecute() {}
@@ -205,18 +193,14 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
 
 
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -334,12 +318,10 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

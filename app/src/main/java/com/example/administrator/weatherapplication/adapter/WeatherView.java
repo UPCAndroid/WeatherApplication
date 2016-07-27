@@ -82,6 +82,8 @@ public class WeatherView {
             case "中雪":
                 img.setImageResource(R.mipmap.bg_snow);
                 break;
+            case "阵雨":
+                img.setImageResource(R.mipmap.bg_rain);
             case "中雨":
                 img.setImageResource(R.mipmap.bg_rain);
                 break;

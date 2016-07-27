@@ -51,14 +51,14 @@ public class ChoseCityActivity extends AppCompatActivity implements SearchView.O
         searchList.setTextFilterEnabled(true);
         searchCity.setIconifiedByDefault(false);
         searchCity.setOnQueryTextListener(this);
-        searchCity.setSubmitButtonEnabled(false);
+        searchCity.setSubmitButtonEnabled(true);
         searchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
 
-                Toast.makeText(ChoseCityActivity.this,cityNameListHan[i]+"已经添加",Toast.LENGTH_LONG).show();
+                Toast.makeText(ChoseCityActivity.this,cityNameListHan[i]+"添加成功",Toast.LENGTH_LONG).show();
 
                 ContentValues cv = new ContentValues();
                 cv.put("CITY",cityNameListHan[i]);
@@ -87,7 +87,19 @@ public class ChoseCityActivity extends AppCompatActivity implements SearchView.O
     @Override
     public boolean onQueryTextSubmit(String query) {
 
-        Toast.makeText(this, "您的选择是:" + query, Toast.LENGTH_SHORT).show();
+        SQLite db;
+        db = new SQLite(this,"WEATHER",null,7);
+        db.getWritableDatabase();
+        final SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("CITY",query);
+        sqLiteDatabase.insert("WEATHER","CITY",cv);
+
+        Toast.makeText(this,  query+"添加成功", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(ChoseCityActivity.this,MainActivity.class);
+        startActivity(intent);
+
         return false;
     }
 }
